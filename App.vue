@@ -16,10 +16,9 @@
 
    
    
-    <div>{{showMessage}}</div>
-        <div>
-        <h2>{{mess}}</h2>
-      </div>
+        <div>{{show}}</div>
+        
+     
           </card>
 </div>
     </div>
@@ -57,11 +56,19 @@ export default {
     this.connection = new WebSocket("wss://demo.piesocket.com/v3/channel_1?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self")
 
     this.connection.onmessage = function(message) {
-     
-      //  const data = JSON.parse(message.data);
-         this.showMessage = message.data
-       console.log(message.data)
-       alert("پیام سرور" + message.data)
+      console.log("1"+message.data)
+        alert(message.data)
+        setTimeout(() => 
+           afterdelyfunc
+        , 1000);
+        function afterdelyfunc(){
+          const data= JSON.parse(message.data)
+           this.show = data
+           console.log("2"+data)
+        }
+      //  this.show = message.data
+      //  console.log(message.data)
+      //  this.mess = message.data
     
     }
   
