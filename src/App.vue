@@ -6,7 +6,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-6">
-          <div v-for="item in  messageList" :key="item.id"  v-bind:class="[item.id == 1 ? 'alert alert-secondary pull-left' : 'alert alert-primary']"   >
+          <div v-for="item in  messageList" :key="item.id"  v-bind:class="[item.id == 1 ? 'alert alert-secondary bg-light d-flex justify-content-between' : 'alert alert-primary text-left']"   >
           {{item.message}}</div>
           <card>
             
