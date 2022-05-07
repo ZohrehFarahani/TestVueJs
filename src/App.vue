@@ -6,6 +6,8 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-6">
+          <div v-for="item in  messageList" :key="item.id"  v-bind:class="[item.id == 1 ? 'alert alert-secondary pull-left' : 'alert alert-primary']"   >
+          {{item.message}}</div>
           <card>
             
   
@@ -40,30 +42,33 @@ export default {
   data: function() {
     return {
       connection: null,
+      messageList:[],
       show:null,
       visibale:false,
       result:null
     }
   },
   methods: {
-    sendMessage: function() {  
-      this.connection.send(this.mess)  
+      sendMessage: function() {  
+      this.connection.send(this.mess)
+      this.messageList.push({id:2,message:this.mess})
     },
      connect : function() {
-     this.result = "نتیجه..";
-     this.result = "وضعیت ارتباط..";
+    //  this.result = "نتیجه..";
+    //  this.result = "وضعیت ارتباط..";
      this.connection = new WebSocket("wss://demo.piesocket.com/v3/channel_1?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self")
      this.connection.onmessage =(message)=> {
-       console.log(message.data)
-    this.result = message.data
+     console.log(message.data)
+     this.messageList.push({id:1,message:message.data})
+    //  this.result = message.data
     
     }
 
     this.connection.onopen = function(event) {    
       console.log(event)
       console.log ("ارتباط با موفقیت انجام شد"+event.data)
-     this.show ="ارتباط با موفقیت انجام شد"
-      this.visibale =true
+      this.show ="ارتباط با موفقیت انجام شد"
+      this.visibale = true
      
     }
     this.connection.onerror = function(err) {
