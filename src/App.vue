@@ -12,7 +12,7 @@
             
   
   <div class="form-group mx-sm-3 mb-2">
-      <input  type="text" class="form-control" v-model="mess" placeholder="لطفا تایپ نمایید" />
+      <input  type="text" class="form-control" v-model="mess" placeholder="لطفا تایپ نمایید" v-on:keyup.enter="sendMessage()"/>
   </div>
   <button v-on:click="sendMessage()" class="btn btn-primary">ارسال</button>
 
