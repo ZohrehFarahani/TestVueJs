@@ -10,20 +10,14 @@
           {{item.message}}</div>
         
             
-<<<<<<< HEAD
-  
-  <div class="form-group mx-sm-3 mb-2">
-      <input  type="text" class="form-control" v-model="mess" placeholder="لطفا تایپ نمایید" v-on:keyup.enter="sendMessage()"/>
-  </div>
-  <button v-on:click="sendMessage()" class="btn btn-primary">ارسال</button>
-=======
+
      <div class="form-group">
   <div class="form-group mx-sm-3 mb-2  fixed-bottom input-group ">
       <input  type="text" class="form-control" v-model="mess" placeholder="لطفا تایپ نمایید" v-on:keyup.enter="sendMessage()"/>
   <button v-on:click="sendMessage()" class="btn btn-primary ">ارسال</button>
 
 </div></div>
->>>>>>> nuxttest
+
 
    <br>
     <span v-show="visibale">ارتباط با موفقیت انجام شد</span>
